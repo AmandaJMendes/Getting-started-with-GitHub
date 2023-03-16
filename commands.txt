@@ -1,0 +1,101 @@
+amanda@amanda-Lenovo-ideapad-310-14ISK:~$ export ORIGIN=https://github.com/AmandaJMendes/Getting-started-with-GitHub.git
+amanda@amanda-Lenovo-ideapad-310-14ISK:~$ git clone $ORIGIN
+Cloning into 'Getting-started-with-GitHub'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+amanda@amanda-Lenovo-ideapad-310-14ISK:~$ cd Getting-started-with-GitHub
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git checkout -b my-branch
+Switched to a new branch 'my-branch'
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git branch 
+  main
+* my-branch
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git status
+On branch my-branch
+nothing to commit, working tree clean
+
+#Edit test.py
+
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git status
+On branch my-branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git diff
+diff --git a/test.py b/test.py
+index 021f14f..02e7a10 100644
+--- a/test.py
++++ b/test.py
+@@ -1 +1,2 @@
+ print("Exploring github")
++print("Testing changes")
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git add .
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git status
+On branch my-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   test.py
+
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git config --global user.email "amandajm2305@gmail.com"
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git config --global user.name "AmandaJMendes"
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git commit -sm "Testing commit"[my-branch 81baaca] Testing commit
+ 1 file changed, 1 insertion(+)
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git status
+On branch my-branch
+nothing to commit, working tree clean
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git branch
+* main
+  my-branch
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git merge my-branch
+Updating 0b662fb..81baaca
+Fast-forward
+ test.py | 1 +
+ 1 file changed, 1 insertion(+)
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git log --oneline
+81baaca (HEAD -> main, my-branch) Testing commit
+0b662fb (origin/main, origin/HEAD) Create test.py
+c013727 Create README.md
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git log 
+commit 81baaca7f6713c67a99af103c67e55159f27a942 (HEAD -> main, my-branch)
+Author: AmandaJMendes <amandajm2305@gmail.com>
+Date:   Thu Mar 16 10:46:31 2023 -0300
+
+    Testing commit
+    
+    Signed-off-by: AmandaJMendes <amandajm2305@gmail.com>
+
+commit 0b662fb455bc83acc7ee755e5064a6a68422ce69 (origin/main, origin/HEAD)
+Author: Amanda J Mendes <81707878+AmandaJMendes@users.noreply.github.com>
+Date:   Thu Mar 16 10:31:24 2023 -0300
+
+    Create test.py
+
+commit c013727165f0ace52befbfb6d22fb99c178fe4c9
+Author: Amanda J Mendes <81707878+AmandaJMendes@users.noreply.github.com>
+Date:   Thu Mar 16 10:31:04 2023 -0300
+
+    Create README.md
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git branch -d my-branch
+Deleted branch my-branch (was 81baaca).
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git branch
+* main
+amanda@amanda-Lenovo-ideapad-310-14ISK:~/Getting-started-with-GitHub$ git push origin main
+Username for 'https://github.com': AmandaJMendes
+Password for 'https://AmandaJMendes@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 342 bytes | 171.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/AmandaJMendes/Getting-started-with-GitHub.git
+   0b662fb..81baaca  main -> main
+
